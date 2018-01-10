@@ -1,64 +1,90 @@
-const path = require('path');
-const CompressionPlugin = require('compression-webpack-plugin');
-const webpack = require('webpack');
+const webpack = require("webpack");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const autoprefixer = require("autoprefixer");
 
-const webpackConfig = {
-  entry: path.resolve(__dirname, './client/src/index.jsx'),
+const browserConfig = {
+  entry: "./src/browser/index.js",
   output: {
-    path: path.resolve(__dirname, './client/dist'),
-    filename: 'bundle.js',
+    path: __dirname,
+    filename: "./public/bundle.js"
   },
+  devtool: "cheap-module-source-map",
   module: {
-    loaders: [],
-  },
-  resolve: {
-    extensions: ['.js', '.jsx'],
-  },
-  devtool: 'inline-source-map',
-  plugins: [
-    new webpack.DefinePlugin({ 
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
+    rules: [
+      {
+        test: [/\.svg$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        loader: "file-loader",
+        options: {
+          name: "public/media/[name].[ext]",
+          publicPath: url => url.replace(/public/, "")
+        }
+      },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          use: [
+            {
+              loader: "css-loader",
+              options: { importLoaders: 1 }
+            },
+            {
+              loader: "postcss-loader",
+              options: { plugins: [autoprefixer()] }
+            }
+          ]
+        })
+      },
+      {
+        test: /js$/,
+        exclude: /(node_modules)/,
+        loader: "babel-loader",
+        query: { presets: ["react-app"] }
       }
-    }),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.optimize.AggressiveMergingPlugin(),
-    new CompressionPlugin({
-      asset: "[path].gz[query]",
-      algorithm: "gzip",
-      test: /\.js$|\.css$|\.html$/,
-      threshold: 10240,
-      minRatio: 0.8
-    }),
-  ],
+    ]
+  },
+  plugins: [
+    new ExtractTextPlugin({
+      filename: "public/css/[name].css"
+    })
+  ]
 };
 
-webpackConfig.module.loaders.push({
-  test: /\.js[x]?$/,
-  exclude: /node_modules/,
-  loader: 'babel-loader',
-  options: { presets: ['es2015', 'react']},
-});
+const serverConfig = {
+  entry: "./src/server/index.js",
+  target: "node",
+  output: {
+    path: __dirname,
+    filename: "server.js",
+    libraryTarget: "commonjs2"
+  },
+  devtool: "cheap-module-source-map",
+  module: {
+    rules: [
+      {
+        test: [/\.svg$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        loader: "file-loader",
+        options: {
+          name: "public/media/[name].[ext]",
+          publicPath: url => url.replace(/public/, ""),
+          emit: false
+        }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: "css-loader/locals"
+          }
+        ]
+      },
+      {
+        test: /js$/,
+        exclude: /(node_modules)/,
+        loader: "babel-loader",
+        query: { presets: ["react-app"] }
+      }
+    ]
+  }
+};
 
-webpackConfig.module.loaders.push({
-  test: /\.(css)$/,
-  loaders: ['style-loader', 'css-loader?url=false']
-});
-
-webpackConfig.module.loaders.push({
-  test: /\.(png|jpg|gif|jpeg)$/,
-  loader: 'file-loader',
-  options: {}  
-});
-
-webpackConfig.module.loaders.push({
-  test: /\.svg$/,
-  use: [{
-    loader: 'babel-loader'
-  }, {
-    loader: 'react-svg-loader'
-  }]
-});
-
-module.exports = webpackConfig;
+module.exports = [browserConfig, serverConfig];

@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: url(/media/nightsky.svg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  -webkit-animation: App-logo-spin infinite 20s linear;
+          animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  height: 150px;
+  line-height: 150px;
+  padding: 20px;
+  background: transparent;
+}
+
+.App-header h2 {
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -28px;
+  font-size: 63px;
+  color: #917879;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+#creditFooter {
+  background-color: #00000040 !important;
+  height: 20px !important;
+}
+
+#creditFooterText {
+  font-size: 12px !important;
+}
+
+@-webkit-keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+/*# sourceMappingURL=main.css.map*/
