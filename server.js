@@ -16503,13 +16503,13 @@ var app = __WEBPACK_IMPORTED_MODULE_0_express___default()();
 app.use(__WEBPACK_IMPORTED_MODULE_0_express___default.a.static("public"));
 
 app.get("*", function (req, res) {
-  res.send("\n      <!DOCTYPE html>\n      <head>\n        <title>Rich Oh</title>\n        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css\" integrity=\"sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy\" crossorigin=\"anonymous\">\n        <link rel=\"stylesheet\" href=\"/css/main.css\">\n        </head>\n        \n        <body>\n        <div id=\"root\">" + Object(__WEBPACK_IMPORTED_MODULE_2_react_dom_server__["renderToString"])(__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__shared_App__["a" /* default */], {
+  res.send("\n    <!DOCTYPE html>\n      <head>\n        <title>Rich Oh</title>\n        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css\">\n        <link href=\"https://fonts.googleapis.com/css?family=Quicksand:300,400\" rel=\"stylesheet\">        <link rel=\"stylesheet\" href=\"/css/main.css\">\n      </head>\n        \n      <body>\n        <div id=\"root\">" + Object(__WEBPACK_IMPORTED_MODULE_2_react_dom_server__["renderToString"])(__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__shared_App__["a" /* default */], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 20
     },
     __self: _this
-  })) + "</div>\n        <script src=\"/bundle.js\" defer></script>\n        <script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>\n        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js\" integrity=\"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q\" crossorigin=\"anonymous\"></script>\n        <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js\" integrity=\"sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4\" crossorigin=\"anonymous\"></script>\n        <nav class=\"navbar fixed-bottom navbar-light bg-light\" id=\"creditFooter\">\n          <a class=\"navbar-nav flex-row ml-md-auto d-none d-md-flex\" id=\"creditFooterText\" href=\"https://medialoot.com/item/night-sky-vector-backgrounds/\">Background image credit to MediaLoot</a>\n        </nav>\n      </body>\n    </html>\n  ");
+  })) + "</div>\n        <script src=\"/bundle.js\" defer></script>\n        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js\"></script>\n            \n        <nav id=\"creditFooter\">\n          <a id=\"creditFooterText\" href=\"https://medialoot.com/item/night-sky-vector-backgrounds/\" target=\"_blank\">Background image credit to MediaLoot</a>\n        </nav>\n      </body>\n    </html>\n  ");
 });
 
 app.listen(process.env.PORT || 3000, function () {
@@ -39934,7 +39934,10 @@ var App = function (_Component) {
   function App() {
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+
+    _this.state = {};
+    return _this;
   }
 
   _createClass(App, [{
@@ -39944,7 +39947,7 @@ var App = function (_Component) {
         "div",
         { className: "App", __source: {
             fileName: _jsxFileName,
-            lineNumber: 12
+            lineNumber: 15
           },
           __self: this
         },
@@ -39952,20 +39955,157 @@ var App = function (_Component) {
           "div",
           { className: "App-header", __source: {
               fileName: _jsxFileName,
-              lineNumber: 13
+              lineNumber: 17
             },
             __self: this
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "h2",
-            {
-              __source: {
+            "div",
+            { className: "App-header-text", __source: {
                 fileName: _jsxFileName,
-                lineNumber: 14
+                lineNumber: 18
               },
               __self: this
             },
-            "Rich Oh"
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "h2",
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 19
+                },
+                __self: this
+              },
+              "Rich Oh"
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "div",
+              { className: "App-header-subtext", __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 20
+                },
+                __self: this
+              },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "p",
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 21
+                  },
+                  __self: this
+                },
+                "a software engineer"
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "p",
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 22
+                  },
+                  __self: this
+                },
+                "in los angeles"
+              )
+            )
+          )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "div",
+          { className: "app-body", __source: {
+              fileName: _jsxFileName,
+              lineNumber: 27
+            },
+            __self: this
+          },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "ul",
+            { className: "menu collection", __source: {
+                fileName: _jsxFileName,
+                lineNumber: 29
+              },
+              __self: this
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "a",
+              { className: "collection-item active", __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 30
+                },
+                __self: this
+              },
+              "About"
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "a",
+              { className: "collection-item", __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 31
+                },
+                __self: this
+              },
+              "Ongoing"
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "a",
+              { className: "collection-item", __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 32
+                },
+                __self: this
+              },
+              "Lab"
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "a",
+              { className: "collection-item", __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 33
+                },
+                __self: this
+              },
+              "Contact"
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            { className: "card blue-grey darken-1", __source: {
+                fileName: _jsxFileName,
+                lineNumber: 36
+              },
+              __self: this
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "div",
+              { className: "card-content white-text", __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 37
+                },
+                __self: this
+              },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "span",
+                { className: "card-title", __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 38
+                  },
+                  __self: this
+                },
+                "Card Title"
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "p",
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 39
+                  },
+                  __self: this
+                },
+                "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively."
+              )
+            )
           )
         )
       );

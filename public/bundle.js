@@ -22111,7 +22111,10 @@ var App = function (_Component) {
   function App() {
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+
+    _this.state = {};
+    return _this;
   }
 
   _createClass(App, [{
@@ -22121,7 +22124,7 @@ var App = function (_Component) {
         "div",
         { className: "App", __source: {
             fileName: _jsxFileName,
-            lineNumber: 12
+            lineNumber: 15
           },
           __self: this
         },
@@ -22129,20 +22132,157 @@ var App = function (_Component) {
           "div",
           { className: "App-header", __source: {
               fileName: _jsxFileName,
-              lineNumber: 13
+              lineNumber: 17
             },
             __self: this
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "h2",
-            {
-              __source: {
+            "div",
+            { className: "App-header-text", __source: {
                 fileName: _jsxFileName,
-                lineNumber: 14
+                lineNumber: 18
               },
               __self: this
             },
-            "Rich Oh"
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "h2",
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 19
+                },
+                __self: this
+              },
+              "Rich Oh"
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "div",
+              { className: "App-header-subtext", __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 20
+                },
+                __self: this
+              },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "p",
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 21
+                  },
+                  __self: this
+                },
+                "a software engineer"
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "p",
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 22
+                  },
+                  __self: this
+                },
+                "in los angeles"
+              )
+            )
+          )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "div",
+          { className: "app-body", __source: {
+              fileName: _jsxFileName,
+              lineNumber: 27
+            },
+            __self: this
+          },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "ul",
+            { className: "menu collection", __source: {
+                fileName: _jsxFileName,
+                lineNumber: 29
+              },
+              __self: this
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "a",
+              { className: "collection-item active", __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 30
+                },
+                __self: this
+              },
+              "About"
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "a",
+              { className: "collection-item", __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 31
+                },
+                __self: this
+              },
+              "Ongoing"
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "a",
+              { className: "collection-item", __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 32
+                },
+                __self: this
+              },
+              "Lab"
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "a",
+              { className: "collection-item", __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 33
+                },
+                __self: this
+              },
+              "Contact"
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            { className: "card blue-grey darken-1", __source: {
+                fileName: _jsxFileName,
+                lineNumber: 36
+              },
+              __self: this
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "div",
+              { className: "card-content white-text", __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 37
+                },
+                __self: this
+              },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "span",
+                { className: "card-title", __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 38
+                  },
+                  __self: this
+                },
+                "Card Title"
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "p",
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 39
+                  },
+                  __self: this
+                },
+                "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively."
+              )
+            )
           )
         )
       );

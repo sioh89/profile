@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Quicksand', sans-serif;
   background: url("nightsky.svg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -25,26 +25,93 @@ body {
   background: transparent;
 }
 
-.App-header h2 {
-  line-height: 1.5;
+.App-header .App-header-text {
+  line-height: 3.5;
   display: inline-block;
   vertical-align: middle;
-  margin-top: -28px;
+  margin-top: -91px;
+  color: #a0a2a9;
+}
+
+.App-header-text h2 {
   font-size: 63px;
-  color: #917879;
+  margin-bottom: 0px;
+}
+
+.App-header-subtext {
+  font-size: 25px;
+  margin-top: -58px;
+  font-weight: 300;
+}
+
+.App-header-subtext p {
+  margin-bottom: -87px;
 }
 
 .App-intro {
   font-size: large;
 }
 
+a {
+  text-decoration: none !important;
+}
+
 #creditFooter {
   background-color: #00000040 !important;
   height: 20px !important;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  line-height: 20px;
 }
 
 #creditFooterText {
   font-size: 12px !important;
+  color: #393a50;
+  float: right;
+  line-height: 1.5;
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-top: 2px;
+}
+
+#creditFooterText:hover {
+  color: #625966;
+}
+
+.collection {
+  margin: 0px !important;
+  margin-top: 60px !important;
+  width: 100%;
+  border: none !important;
+  border-radius: 4px;
+}
+
+.collection-item {
+  text-align: left;
+  background-color: rgba(34, 29, 33, 0) !important;
+  border: none !important;
+  display: inline-block !important;
+}
+
+.collection-item:hover {
+  color: #85ffee !important;
+}
+
+.collection .collection-item.active {
+  color: #4ea69a;
+  border-bottom: 2px solid #55ceb78c !important;
+}
+
+.card {
+  margin: 60px !important;
+  background-color: #546e7a78 !important;
+}
+
+.app-body {
+  width: 100%;
+  text-align: center;
+  margin: auto;
 }
 
 @keyframes App-logo-spin {
