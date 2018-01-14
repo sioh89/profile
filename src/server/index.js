@@ -1,6 +1,11 @@
 import express from "express";
 import React from "react";
 import { renderToString } from "react-dom/server";
+import {
+  StaticRouter,
+  matchPath
+} from "react-router-dom";
+import routes from "../shared/routes";
 import App from "../shared/App";
 
 const app = express();
@@ -8,6 +13,14 @@ const app = express();
 app.use(express.static("public"));
 
 app.get("*", (req, res) => {
+  const currentRoute = routes.find(route => matchPath(req.url, route));
+  const context = {};
+  const markup = renderToString(
+    <StaticRouter location={req.url} context={context}>
+      <App />
+    </StaticRouter>
+  );
+
   res.send(`
     <!DOCTYPE html>
       <head>
@@ -17,7 +30,7 @@ app.get("*", (req, res) => {
       </head>
         
       <body>
-        <div id="root">${renderToString(<App />)}</div>
+        <div id="root">${markup}</div>
         <script src="/bundle.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
             
