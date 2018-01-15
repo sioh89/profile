@@ -6,6 +6,7 @@ import {
   withRouter,
 } from 'react-router-dom';
 import routes from './routes';
+import './App.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -33,9 +34,9 @@ class App extends React.Component {
   
           <ul className="menu collection">
             <Link to="/"        className={`collection-item${this.state.currentPage === '/' ? ' active' : ''}`}        onClick={() => this.setState({currentPage:'/'})}>Home</Link>
-            <Link to="/about"   className={`collection-item${this.state.currentPage === '/about' ? ' active' : ''}`}   onClick={() => this.setState({currentPage:'/about'})}>About</Link>
             <Link to="/ongoing" className={`collection-item${this.state.currentPage === '/ongoing' ? ' active' : ''}`} onClick={() => this.setState({currentPage:'/ongoing'})}>Ongoing</Link>
             <Link to="/lab"     className={`collection-item${this.state.currentPage === '/lab' ? ' active' : ''}`}     onClick={() => this.setState({currentPage:'/lab'})}>Lab</Link>
+            <Link to="/about"   className={`collection-item${this.state.currentPage === '/about' ? ' active' : ''}`}   onClick={() => this.setState({currentPage:'/about'})}>About</Link>
             <Link to="/contact" className={`collection-item${this.state.currentPage === '/contact' ? ' active' : ''}`} onClick={() => this.setState({currentPage:'/contact'})}>Contact</Link>
           </ul>
   

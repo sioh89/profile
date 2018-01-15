@@ -25,12 +25,12 @@ body {
   background: transparent;
 }
 
-.App-header .App-header-text {
+.App-header-text {
   line-height: 3.5;
   display: inline-block;
   vertical-align: middle;
   margin-top: -91px;
-  color: #a0a2a9;
+  color: #dcdef1;
 }
 
 .App-header-text h2 {
@@ -103,9 +103,15 @@ a {
   border-bottom: 2px solid #55ceb78c !important;
 }
 
+.card-container {
+  margin: auto;
+}
+
 .card {
-  margin: 60px !important;
-  background-color: #546e7a78 !important;
+  margin: auto;
+  margin-top: 60px;
+  background-color: #546e7a78;
+  max-width: 800px;
 }
 
 .app-body {
