@@ -18539,7 +18539,7 @@ app.get("*", function (req, res) {
     })
   ));
 
-  res.send("\n    <!DOCTYPE html>\n      <head>\n        <title>Rich Oh</title>\n        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css\">\n        <link href=\"https://fonts.googleapis.com/css?family=Quicksand:300,400\" rel=\"stylesheet\">        <link rel=\"stylesheet\" href=\"/css/main.css\">\n      </head>\n        \n      <body>\n        <div id=\"root\">" + markup + "</div>\n        <script src=\"https://code.jquery.com/jquery-2.1.1.min.js\"></script>\n        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js\"></script>\n        <script src=\"/bundle.js\" defer></script>\n            \n        <nav id=\"creditFooter\">\n          <a id=\"creditFooterText\" href=\"https://medialoot.com/item/night-sky-vector-backgrounds/\" target=\"_blank\">Background image credit to MediaLoot</a>\n        </nav>\n      </body>\n    </html>\n  ");
+  res.send("\n    <!DOCTYPE html>\n      <head>\n        <title>Rich Oh</title>\n        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css\">\n        <link href=\"https://fonts.googleapis.com/css?family=Quicksand:300,400\" rel=\"stylesheet\">        <link rel=\"stylesheet\" href=\"/css/main.css\">\n      </head>\n        \n      <body>\n        <div id=\"root\">" + markup + "</div>\n        <script src=\"/bundle.js\" defer></script>\n        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js\"></script>\n            \n        <nav id=\"creditFooter\">\n          <a id=\"creditFooterText\" href=\"https://medialoot.com/item/night-sky-vector-backgrounds/\" target=\"_blank\">Background image credit to MediaLoot</a>\n        </nav>\n      </body>\n    </html>\n  ");
 });
 
 app.listen(process.env.PORT || 3000, function () {
@@ -44493,7 +44493,7 @@ var _jsxFileName = "/Users/rech/Apps/profile/src/shared/home/Home.js";
 var Home = function Home() {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     "div",
-    { className: "card-container", __source: {
+    { className: "card blue-grey darken-1", __source: {
         fileName: _jsxFileName,
         lineNumber: 5
       },
@@ -44501,41 +44501,32 @@ var Home = function Home() {
     },
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       "div",
-      { className: "home card", __source: {
+      { className: "card-content white-text", __source: {
           fileName: _jsxFileName,
           lineNumber: 6
         },
         __self: this
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "div",
-        { className: "card-content white-text", __source: {
+        "span",
+        { className: "card-title", __source: {
             fileName: _jsxFileName,
             lineNumber: 7
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "span",
-          { className: "card-title", __source: {
-              fileName: _jsxFileName,
-              lineNumber: 8
-            },
-            __self: this
+        "Home"
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "p",
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 8
           },
-          "Home"
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "p",
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 9
-            },
-            __self: this
-          },
-          "Home component!"
-        )
+          __self: this
+        },
+        "Home component!"
       )
     )
   );
@@ -44550,57 +44541,20 @@ var Home = function Home() {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "/Users/rech/Apps/profile/src/shared/about/About.js";
+var _jsxFileName = '/Users/rech/Apps/profile/src/shared/about/About.js';
 
 
 var About = function About() {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    "div",
-    { className: "card-container", __source: {
+    'div',
+    {
+      __source: {
         fileName: _jsxFileName,
         lineNumber: 5
       },
       __self: this
     },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      "div",
-      { className: "about card", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 6
-        },
-        __self: this
-      },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "div",
-        { className: "card-content white-text", __source: {
-            fileName: _jsxFileName,
-            lineNumber: 7
-          },
-          __self: this
-        },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "span",
-          { className: "card-title", __source: {
-              fileName: _jsxFileName,
-              lineNumber: 8
-            },
-            __self: this
-          },
-          "About"
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "p",
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 9
-            },
-            __self: this
-          },
-          "About component!"
-        )
-      )
-    )
+    'About'
   );
 };
 
@@ -44613,57 +44567,20 @@ var About = function About() {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "/Users/rech/Apps/profile/src/shared/contact/Contact.js";
+var _jsxFileName = '/Users/rech/Apps/profile/src/shared/contact/Contact.js';
 
 
 var Contact = function Contact() {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    "div",
-    { className: "card-container", __source: {
+    'div',
+    {
+      __source: {
         fileName: _jsxFileName,
         lineNumber: 5
       },
       __self: this
     },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      "div",
-      { className: "contact card", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 6
-        },
-        __self: this
-      },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "div",
-        { className: "card-content white-text", __source: {
-            fileName: _jsxFileName,
-            lineNumber: 7
-          },
-          __self: this
-        },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "span",
-          { className: "card-title", __source: {
-              fileName: _jsxFileName,
-              lineNumber: 8
-            },
-            __self: this
-          },
-          "Contact"
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "p",
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 9
-            },
-            __self: this
-          },
-          "Contact component!"
-        )
-      )
-    )
+    'Contact'
   );
 };
 
@@ -44676,57 +44593,20 @@ var Contact = function Contact() {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "/Users/rech/Apps/profile/src/shared/lab/Lab.js";
+var _jsxFileName = '/Users/rech/Apps/profile/src/shared/lab/Lab.js';
 
 
 var Lab = function Lab() {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    "div",
-    { className: "card-container", __source: {
+    'div',
+    {
+      __source: {
         fileName: _jsxFileName,
         lineNumber: 5
       },
       __self: this
     },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      "div",
-      { className: "lab card", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 6
-        },
-        __self: this
-      },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "div",
-        { className: "card-content white-text", __source: {
-            fileName: _jsxFileName,
-            lineNumber: 7
-          },
-          __self: this
-        },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "span",
-          { className: "card-title", __source: {
-              fileName: _jsxFileName,
-              lineNumber: 8
-            },
-            __self: this
-          },
-          "Lab"
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "p",
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 9
-            },
-            __self: this
-          },
-          "Lab component!"
-        )
-      )
-    )
+    'Lab'
   );
 };
 
@@ -44739,57 +44619,20 @@ var Lab = function Lab() {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "/Users/rech/Apps/profile/src/shared/notfound/NotFound.js";
+var _jsxFileName = '/Users/rech/Apps/profile/src/shared/notfound/NotFound.js';
 
 
 var NotFound = function NotFound() {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    "div",
-    { className: "card-container", __source: {
+    'div',
+    {
+      __source: {
         fileName: _jsxFileName,
         lineNumber: 5
       },
       __self: this
     },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      "div",
-      { className: "not-found card", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 6
-        },
-        __self: this
-      },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "div",
-        { className: "card-content white-text", __source: {
-            fileName: _jsxFileName,
-            lineNumber: 7
-          },
-          __self: this
-        },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "span",
-          { className: "card-title", __source: {
-              fileName: _jsxFileName,
-              lineNumber: 8
-            },
-            __self: this
-          },
-          "Not Found"
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "p",
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 9
-            },
-            __self: this
-          },
-          "Not Found component!"
-        )
-      )
-    )
+    'NotFound'
   );
 };
 
@@ -44802,57 +44645,20 @@ var NotFound = function NotFound() {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "/Users/rech/Apps/profile/src/shared/ongoing/Ongoing.js";
+var _jsxFileName = '/Users/rech/Apps/profile/src/shared/ongoing/Ongoing.js';
 
 
 var Ongoing = function Ongoing() {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    "div",
-    { className: "card-container", __source: {
+    'div',
+    {
+      __source: {
         fileName: _jsxFileName,
         lineNumber: 5
       },
       __self: this
     },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      "div",
-      { className: "ongoing card", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 6
-        },
-        __self: this
-      },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "div",
-        { className: "card-content white-text", __source: {
-            fileName: _jsxFileName,
-            lineNumber: 7
-          },
-          __self: this
-        },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "span",
-          { className: "card-title", __source: {
-              fileName: _jsxFileName,
-              lineNumber: 8
-            },
-            __self: this
-          },
-          "Ongoing"
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "p",
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 9
-            },
-            __self: this
-          },
-          "Ongoing component!"
-        )
-      )
-    )
+    'Ongoing'
   );
 };
 
@@ -44867,8 +44673,6 @@ var Ongoing = function Ongoing() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(143);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__routes__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__App_css__ = __webpack_require__(350);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__App_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__App_css__);
 var _jsxFileName = '/Users/rech/Apps/profile/src/shared/App.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -44878,7 +44682,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 
 
 
@@ -44907,7 +44710,7 @@ var App = function (_React$Component) {
         'div',
         { className: 'App', __source: {
             fileName: _jsxFileName,
-            lineNumber: 21
+            lineNumber: 20
           },
           __self: this
         },
@@ -44915,7 +44718,7 @@ var App = function (_React$Component) {
           'div',
           { className: 'App-header', __source: {
               fileName: _jsxFileName,
-              lineNumber: 23
+              lineNumber: 22
             },
             __self: this
           },
@@ -44923,7 +44726,7 @@ var App = function (_React$Component) {
             'div',
             { className: 'App-header-text', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 24
+                lineNumber: 23
               },
               __self: this
             },
@@ -44932,7 +44735,7 @@ var App = function (_React$Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 25
+                  lineNumber: 24
                 },
                 __self: this
               },
@@ -44942,7 +44745,7 @@ var App = function (_React$Component) {
               'div',
               { className: 'App-header-subtext', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 26
+                  lineNumber: 25
                 },
                 __self: this
               },
@@ -44951,7 +44754,7 @@ var App = function (_React$Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 27
+                    lineNumber: 26
                   },
                   __self: this
                 },
@@ -44962,7 +44765,7 @@ var App = function (_React$Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 28
+                    lineNumber: 27
                   },
                   __self: this
                 },
@@ -44975,7 +44778,7 @@ var App = function (_React$Component) {
           'div',
           { className: 'app-body', __source: {
               fileName: _jsxFileName,
-              lineNumber: 33
+              lineNumber: 32
             },
             __self: this
           },
@@ -44983,7 +44786,7 @@ var App = function (_React$Component) {
             'ul',
             { className: 'menu collection', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 35
+                lineNumber: 34
               },
               __self: this
             },
@@ -44993,11 +44796,23 @@ var App = function (_React$Component) {
                   return _this2.setState({ currentPage: '/' });
                 }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 36
+                  lineNumber: 35
                 },
                 __self: this
               },
               'Home'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["a" /* Link */],
+              { to: '/about', className: 'collection-item' + (this.state.currentPage === '/about' ? ' active' : ''), onClick: function onClick() {
+                  return _this2.setState({ currentPage: '/about' });
+                }, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 36
+                },
+                __self: this
+              },
+              'About'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["a" /* Link */],
@@ -45025,23 +44840,11 @@ var App = function (_React$Component) {
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["a" /* Link */],
-              { to: '/about', className: 'collection-item' + (this.state.currentPage === '/about' ? ' active' : ''), onClick: function onClick() {
-                  return _this2.setState({ currentPage: '/about' });
-                }, __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 39
-                },
-                __self: this
-              },
-              'About'
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["a" /* Link */],
               { to: '/contact', className: 'collection-item' + (this.state.currentPage === '/contact' ? ' active' : ''), onClick: function onClick() {
                   return _this2.setState({ currentPage: '/contact' });
                 }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 40
+                  lineNumber: 39
                 },
                 __self: this
               },
@@ -45053,7 +44856,7 @@ var App = function (_React$Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 43
+                lineNumber: 42
               },
               __self: this
             },
@@ -45061,7 +44864,7 @@ var App = function (_React$Component) {
               return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Route */], Object.assign({ key: i }, route, {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 44
+                  lineNumber: 43
                 },
                 __self: _this2
               }));
@@ -45076,12 +44879,6 @@ var App = function (_React$Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["f" /* withRouter */])(App));
-
-/***/ }),
-/* 350 */
-/***/ (function(module, exports) {
-
-
 
 /***/ })
 /******/ ]);

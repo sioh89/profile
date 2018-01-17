@@ -31,9 +31,8 @@ app.get("*", (req, res) => {
         
       <body>
         <div id="root">${markup}</div>
-        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <script src="/bundle.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
             
         <nav id="creditFooter">
           <a id="creditFooterText" href="https://medialoot.com/item/night-sky-vector-backgrounds/" target="_blank">Background image credit to MediaLoot</a>
