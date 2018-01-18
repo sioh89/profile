@@ -31,6 +31,7 @@ app.get("*", (req, res) => {
         
       <body>
         <div id="root">${markup}</div>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         <script src="/bundle.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
             
