@@ -38617,7 +38617,15 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_render_html__ = __webpack_require__(263);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_render_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_render_html__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__routes__ = __webpack_require__(293);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__helper_charDelay__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_charDelay__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__App_css__ = __webpack_require__(301);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__App_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__App_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__linkedin_png__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__linkedin_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__linkedin_png__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__gmail_png__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__gmail_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__gmail_png__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__github_png__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__github_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__github_png__);
 var _jsxFileName = '/Users/rech/Apps/profile/src/shared/App.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -38630,6 +38638,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
+
+
+
+
+// Media icons
 
 
 
@@ -38662,12 +38676,15 @@ var App = function (_React$Component) {
       var returnText = '<' + tag + '>';
       for (var i = 0; i < text.length; i++) {
         var thisKey = tag + key + i;
-        returnText += '<span key=' + thisKey + ' style="opacity:' + this.state.show + ';transition:opacity 1300ms;transition-delay:' + __WEBPACK_IMPORTED_MODULE_4__helper_charDelay__["a" /* default */][text.charAt(i)] + 'ms;transition-timing-function:linear;">' + text.charAt(i) + '</span>';
+        returnText += '<span key=' + thisKey + ' style="opacity:' + this.state.show + ';transition:opacity 1300ms;transition-delay:' + __WEBPACK_IMPORTED_MODULE_4__utils_charDelay__["a" /* default */][text.charAt(i)] + 'ms;transition-timing-function:linear;">' + text.charAt(i) + '</span>';
       }
 
       returnText += '</' + tag + '>';
       return returnText;
     }
+
+    // <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
   }, {
     key: 'render',
     value: function render() {
@@ -38677,7 +38694,7 @@ var App = function (_React$Component) {
         'div',
         { className: 'App', __source: {
             fileName: _jsxFileName,
-            lineNumber: 40
+            lineNumber: 48
           },
           __self: this
         },
@@ -38685,7 +38702,7 @@ var App = function (_React$Component) {
           'div',
           { className: 'App-header', key: 'appheader', __source: {
               fileName: _jsxFileName,
-              lineNumber: 42
+              lineNumber: 50
             },
             __self: this
           },
@@ -38693,7 +38710,7 @@ var App = function (_React$Component) {
             'div',
             { className: 'App-header-text', key: 'appheadertext', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 43
+                lineNumber: 51
               },
               __self: this
             },
@@ -38702,7 +38719,7 @@ var App = function (_React$Component) {
               'div',
               { className: 'App-header-subtext', key: 'appheadersubtext', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 45
+                  lineNumber: 53
                 },
                 __self: this
               },
@@ -38711,7 +38728,7 @@ var App = function (_React$Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 46
+                    lineNumber: 54
                   },
                   __self: this
                 },
@@ -38722,20 +38739,47 @@ var App = function (_React$Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 47
+                    lineNumber: 55
                   },
                   __self: this
                 },
                 __WEBPACK_IMPORTED_MODULE_2_react_render_html___default()(this.getAnimationTags('p', 'in los angeles', 'location'))
               )
             )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'contact-icons fadein' + (this.state.show === 1 ? ' show' : ''), __source: {
+                fileName: _jsxFileName,
+                lineNumber: 59
+              },
+              __self: this
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon linkedin', src: __WEBPACK_IMPORTED_MODULE_7__gmail_png___default.a, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 60
+              },
+              __self: this
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon linkedin', src: __WEBPACK_IMPORTED_MODULE_6__linkedin_png___default.a, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 61
+              },
+              __self: this
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon linkedin', src: __WEBPACK_IMPORTED_MODULE_8__github_png___default.a, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 62
+              },
+              __self: this
+            })
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
-          { className: 'app-body', __source: {
+          { className: 'app-body fadein' + (this.state.show === 1 ? ' show' : ''), __source: {
               fileName: _jsxFileName,
-              lineNumber: 52
+              lineNumber: 66
             },
             __self: this
           },
@@ -38743,7 +38787,7 @@ var App = function (_React$Component) {
             'ul',
             { className: 'menu collection', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 54
+                lineNumber: 68
               },
               __self: this
             },
@@ -38753,35 +38797,23 @@ var App = function (_React$Component) {
                   return _this2.setState({ currentPage: '/' });
                 }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 55
+                  lineNumber: 69
                 },
                 __self: this
               },
-              'Home'
+              '         Home'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-              { to: '/about', className: 'collection-item' + (this.state.currentPage === '/about' ? ' active' : ''), onClick: function onClick() {
-                  return _this2.setState({ currentPage: '/about' });
+              { to: '/projects', className: 'collection-item' + (this.state.currentPage === '/projects' ? ' active' : ''), onClick: function onClick() {
+                  return _this2.setState({ currentPage: '/projects' });
                 }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 56
+                  lineNumber: 70
                 },
                 __self: this
               },
-              'About'
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-              { to: '/ongoing', className: 'collection-item' + (this.state.currentPage === '/ongoing' ? ' active' : ''), onClick: function onClick() {
-                  return _this2.setState({ currentPage: '/ongoing' });
-                }, __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 57
-                },
-                __self: this
-              },
-              'Ongoing'
+              ' Projects'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
@@ -38789,23 +38821,11 @@ var App = function (_React$Component) {
                   return _this2.setState({ currentPage: '/lab' });
                 }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 58
+                  lineNumber: 71
                 },
                 __self: this
               },
-              'Lab'
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-              { to: '/contact', className: 'collection-item' + (this.state.currentPage === '/contact' ? ' active' : ''), onClick: function onClick() {
-                  return _this2.setState({ currentPage: '/contact' });
-                }, __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 59
-                },
-                __self: this
-              },
-              'Contact'
+              '      Lab'
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -38813,7 +38833,7 @@ var App = function (_React$Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 62
+                lineNumber: 74
               },
               __self: this
             },
@@ -38821,7 +38841,7 @@ var App = function (_React$Component) {
               return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], Object.assign({ key: i }, route, {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 63
+                  lineNumber: 75
                 },
                 __self: _this2
               }));
@@ -41935,7 +41955,7 @@ module.exports = function (styleStr) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contact_Contact__ = __webpack_require__(296);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lab_Lab__ = __webpack_require__(297);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__notfound_NotFound__ = __webpack_require__(298);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ongoing_Ongoing__ = __webpack_require__(299);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__projects_Projects__ = __webpack_require__(299);
 
 
 
@@ -41960,8 +41980,8 @@ var routes = [{
   path: '/notfound',
   component: __WEBPACK_IMPORTED_MODULE_4__notfound_NotFound__["a" /* default */]
 }, {
-  path: '/ongoing',
-  component: __WEBPACK_IMPORTED_MODULE_5__ongoing_Ongoing__["a" /* default */]
+  path: '/projects',
+  component: __WEBPACK_IMPORTED_MODULE_5__projects_Projects__["a" /* default */]
 }];
 
 /* harmony default export */ __webpack_exports__["a"] = (routes);
@@ -42057,17 +42077,13 @@ var About = function About() {
         },
         "About"
       ),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "p",
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 8
-          },
-          __self: this
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 8
         },
-        "About component!"
-      )
+        __self: this
+      })
     )
   );
 };
@@ -42243,10 +42259,10 @@ var NotFound = function NotFound() {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "/Users/rech/Apps/profile/src/shared/ongoing/Ongoing.js";
+var _jsxFileName = "/Users/rech/Apps/profile/src/shared/projects/Projects.js";
 
 
-var Ongoing = function Ongoing() {
+var Projects = function Projects() {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     "div",
     { className: "card blue-grey darken-1", __source: {
@@ -42271,7 +42287,7 @@ var Ongoing = function Ongoing() {
           },
           __self: this
         },
-        "Ongoing"
+        "Projects"
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         "p",
@@ -42282,13 +42298,13 @@ var Ongoing = function Ongoing() {
           },
           __self: this
         },
-        "Ongoing component!"
+        "Projects component!"
       )
     )
   );
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (Ongoing);
+/* harmony default export */ __webpack_exports__["a"] = (Projects);
 
 /***/ }),
 /* 300 */
@@ -42353,6 +42369,30 @@ var delay = {
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (delay);
+
+/***/ }),
+/* 301 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 302 */
+/***/ (function(module, exports) {
+
+module.exports = "/media/linkedin.png";
+
+/***/ }),
+/* 303 */
+/***/ (function(module, exports) {
+
+module.exports = "/media/gmail.png";
+
+/***/ }),
+/* 304 */
+/***/ (function(module, exports) {
+
+module.exports = "/media/github.png";
 
 /***/ })
 /******/ ]);

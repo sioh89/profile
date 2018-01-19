@@ -9,6 +9,16 @@ body {
   background-size: cover;
 }
 
+.fadein {
+  opacity: 0 !important;
+  transition:opacity 1400ms !important;
+  transition-delay: 1250ms !important;
+}
+
+.show {
+  opacity: 1 !important;
+}
+
 .App {
   text-align: center;
 }
@@ -30,7 +40,7 @@ body {
   display: inline-block;
   vertical-align: middle;
   margin-top: -91px;
-  color: #a0a2a9;
+  color: #c9cad6;
 }
 
 .App-header-text h2 {
@@ -112,6 +122,16 @@ a {
   width: 100%;
   text-align: center;
   margin: auto;
+}
+
+.contact-icons {
+  margin-top: -43px;
+}
+
+
+img {
+  height: 28px !important;
+  margin: 12px !important;
 }
 
 @keyframes App-logo-spin {

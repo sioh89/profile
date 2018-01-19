@@ -7,7 +7,13 @@ import {
 } from 'react-router-dom';
 import renderHTML from 'react-render-html';
 import routes from './routes';
-import delay from './helper/charDelay';
+import delay from './utils/charDelay';
+import './App.css';
+
+// Media icons
+import linkedInIcon from './linkedin.png';
+import gmailIcon from './gmail.png';
+import githubIcon from './github.png';
 
 class App extends React.Component {
   constructor(props) {
@@ -35,6 +41,8 @@ class App extends React.Component {
     return returnText;
   }
 
+  // <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
   render() {
     return (
       <div className="App">
@@ -47,16 +55,20 @@ class App extends React.Component {
               <div>{renderHTML(this.getAnimationTags('p', 'in los angeles', 'location'))}</div>
             </div>
           </div>
+
+          <div className={`contact-icons fadein${this.state.show === 1 ? ' show' : ''}`}>
+            <img className="icon linkedin" src={gmailIcon}/>
+            <img className="icon linkedin" src={linkedInIcon}/>
+            <img className="icon linkedin" src={githubIcon}/>
+          </div>
         </div>
   
-        <div className="app-body">
+        <div className={`app-body fadein${this.state.show === 1 ? ' show' : ''}`}>
   
           <ul className="menu collection">
-            <Link to="/"        className={`collection-item${this.state.currentPage === '/' ? ' active' : ''}`}        onClick={() => this.setState({currentPage:'/'})}>Home</Link>
-            <Link to="/about"   className={`collection-item${this.state.currentPage === '/about' ? ' active' : ''}`}   onClick={() => this.setState({currentPage:'/about'})}>About</Link>
-            <Link to="/ongoing" className={`collection-item${this.state.currentPage === '/ongoing' ? ' active' : ''}`} onClick={() => this.setState({currentPage:'/ongoing'})}>Ongoing</Link>
-            <Link to="/lab"     className={`collection-item${this.state.currentPage === '/lab' ? ' active' : ''}`}     onClick={() => this.setState({currentPage:'/lab'})}>Lab</Link>
-            <Link to="/contact" className={`collection-item${this.state.currentPage === '/contact' ? ' active' : ''}`} onClick={() => this.setState({currentPage:'/contact'})}>Contact</Link>
+            <Link to="/"          className={`collection-item${this.state.currentPage === '/' ? ' active' : ''}`}         onClick={() => this.setState({currentPage:'/'})}>         Home</Link>
+            <Link to="/projects"  className={`collection-item${this.state.currentPage === '/projects' ? ' active' : ''}`} onClick={() => this.setState({currentPage:'/projects'})}> Projects</Link>
+            <Link to="/lab"       className={`collection-item${this.state.currentPage === '/lab' ? ' active' : ''}`}      onClick={() => this.setState({currentPage:'/lab'})}>      Lab</Link>
           </ul>
   
           <Switch>

@@ -3,7 +3,7 @@ import About from './about/About';
 import Contact from './contact/Contact';
 import Lab from './lab/Lab';
 import NotFound from './notfound/NotFound';
-import Ongoing from './ongoing/Ongoing';
+import Projects from './projects/Projects';
 
 const routes = [
   {
@@ -28,8 +28,8 @@ const routes = [
     component: NotFound,
   },
   {
-    path: '/ongoing',
-    component: Ongoing,
+    path: '/projects',
+    component: Projects,
   },
 ];
 
