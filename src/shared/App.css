@@ -91,7 +91,7 @@ a {
 
 .collection {
   margin: 0px !important;
-  margin-top: 60px !important;
+  margin-top: 100px !important;
   width: 100%;
   border: none !important;
   border-radius: 4px;
@@ -115,6 +115,7 @@ a {
 
 .card {
   margin: 60px !important;
+  margin-top: 25px !important;
   background-color: #546e7a78 !important;
 }
 
@@ -132,6 +133,12 @@ a {
 img {
   height: 28px !important;
   margin: 12px !important;
+}
+
+.email-text {
+  margin-top: -144px;
+  margin-left: -2px;
+  color: #f9f6ee;
 }
 
 @keyframes App-logo-spin {

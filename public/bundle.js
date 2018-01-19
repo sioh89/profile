@@ -38618,14 +38618,15 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_render_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_render_html__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__routes__ = __webpack_require__(293);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_charDelay__ = __webpack_require__(300);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__App_css__ = __webpack_require__(301);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__App_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__App_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__linkedin_png__ = __webpack_require__(302);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__linkedin_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__linkedin_png__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__gmail_png__ = __webpack_require__(303);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__gmail_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__gmail_png__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__github_png__ = __webpack_require__(304);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__github_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__github_png__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_email__ = __webpack_require__(301);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__App_css__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__App_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__App_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__linkedin_png__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__linkedin_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__linkedin_png__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__gmail_png__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__gmail_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__gmail_png__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__github_png__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__github_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__github_png__);
 var _jsxFileName = '/Users/rech/Apps/profile/src/shared/App.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -38635,6 +38636,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -38658,9 +38660,12 @@ var App = function (_React$Component) {
 
     _this.state = {
       currentPage: _this.props.location.pathname,
-      show: '0'
+      show: '0',
+      email: '0'
     };
     _this.getAnimationTags = _this.getAnimationTags.bind(_this);
+    _this.getEmail = _this.getEmail.bind(_this);
+    _this.toggleEmail = _this.toggleEmail.bind(_this);
     return _this;
   }
 
@@ -38668,6 +38673,25 @@ var App = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.setState({ show: 1 });
+    }
+  }, {
+    key: 'toggleEmail',
+    value: function toggleEmail() {
+      console.log('email toggled!');
+      this.setState({
+        email: '1'
+      });
+    }
+  }, {
+    key: 'getEmail',
+    value: function getEmail() {
+      var emailHTML = '';
+
+      for (var i = 0; i < __WEBPACK_IMPORTED_MODULE_5__utils_email__["a" /* default */].length; i++) {
+        emailHTML += '<span key=' + ('email' + i) + ' style="opacity:' + this.state.email + ';transition:opacity 100ms; transition-delay:' + i * 70 + 'ms;transition-timing-function:linear;">' + __WEBPACK_IMPORTED_MODULE_5__utils_email__["a" /* default */][i] + '</span>';
+      }
+
+      return emailHTML;
     }
   }, {
     key: 'getAnimationTags',
@@ -38694,7 +38718,7 @@ var App = function (_React$Component) {
         'div',
         { className: 'App', __source: {
             fileName: _jsxFileName,
-            lineNumber: 48
+            lineNumber: 69
           },
           __self: this
         },
@@ -38702,7 +38726,7 @@ var App = function (_React$Component) {
           'div',
           { className: 'App-header', key: 'appheader', __source: {
               fileName: _jsxFileName,
-              lineNumber: 50
+              lineNumber: 71
             },
             __self: this
           },
@@ -38710,7 +38734,7 @@ var App = function (_React$Component) {
             'div',
             { className: 'App-header-text', key: 'appheadertext', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 51
+                lineNumber: 72
               },
               __self: this
             },
@@ -38719,7 +38743,7 @@ var App = function (_React$Component) {
               'div',
               { className: 'App-header-subtext', key: 'appheadersubtext', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 53
+                  lineNumber: 74
                 },
                 __self: this
               },
@@ -38728,7 +38752,7 @@ var App = function (_React$Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 54
+                    lineNumber: 75
                   },
                   __self: this
                 },
@@ -38739,7 +38763,7 @@ var App = function (_React$Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 55
+                    lineNumber: 76
                   },
                   __self: this
                 },
@@ -38751,35 +38775,63 @@ var App = function (_React$Component) {
             'div',
             { className: 'contact-icons fadein' + (this.state.show === 1 ? ' show' : ''), __source: {
                 fileName: _jsxFileName,
-                lineNumber: 59
+                lineNumber: 80
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon linkedin', src: __WEBPACK_IMPORTED_MODULE_7__gmail_png___default.a, __source: {
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon linkedin', src: __WEBPACK_IMPORTED_MODULE_8__gmail_png___default.a, onClick: this.toggleEmail, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 60
+                lineNumber: 81
               },
               __self: this
             }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon linkedin', src: __WEBPACK_IMPORTED_MODULE_6__linkedin_png___default.a, __source: {
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'a',
+              { href: 'https://www.linkedin.com/in/rich-oh', target: '_blank', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 82
+                },
+                __self: this
+              },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon linkedin', src: __WEBPACK_IMPORTED_MODULE_7__linkedin_png___default.a, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 82
+                },
+                __self: this
+              })
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'a',
+              { href: 'https://www.github.com/sioh89', target: '_blank', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 83
+                },
+                __self: this
+              },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon linkedin', src: __WEBPACK_IMPORTED_MODULE_9__github_png___default.a, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 83
+                },
+                __self: this
+              })
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'email-text', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 61
+                lineNumber: 86
               },
               __self: this
-            }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'icon linkedin', src: __WEBPACK_IMPORTED_MODULE_8__github_png___default.a, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 62
-              },
-              __self: this
-            })
+            },
+            __WEBPACK_IMPORTED_MODULE_2_react_render_html___default()(this.getEmail())
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'app-body fadein' + (this.state.show === 1 ? ' show' : ''), __source: {
               fileName: _jsxFileName,
-              lineNumber: 66
+              lineNumber: 91
             },
             __self: this
           },
@@ -38787,7 +38839,7 @@ var App = function (_React$Component) {
             'ul',
             { className: 'menu collection', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 68
+                lineNumber: 93
               },
               __self: this
             },
@@ -38797,7 +38849,7 @@ var App = function (_React$Component) {
                   return _this2.setState({ currentPage: '/' });
                 }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 69
+                  lineNumber: 94
                 },
                 __self: this
               },
@@ -38809,7 +38861,7 @@ var App = function (_React$Component) {
                   return _this2.setState({ currentPage: '/projects' });
                 }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 70
+                  lineNumber: 95
                 },
                 __self: this
               },
@@ -38821,7 +38873,7 @@ var App = function (_React$Component) {
                   return _this2.setState({ currentPage: '/lab' });
                 }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 71
+                  lineNumber: 96
                 },
                 __self: this
               },
@@ -38833,7 +38885,7 @@ var App = function (_React$Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 74
+                lineNumber: 99
               },
               __self: this
             },
@@ -38841,7 +38893,7 @@ var App = function (_React$Component) {
               return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], Object.assign({ key: i }, route, {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 75
+                  lineNumber: 100
                 },
                 __self: _this2
               }));
@@ -42372,24 +42424,33 @@ var delay = {
 
 /***/ }),
 /* 301 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+"use strict";
+var email = ['s', 'i', 'o', 'h', '8', '9', '@', 'g', 'm', 'a', 'i', 'l', '.', 'c', 'o', 'm'];
+
+/* harmony default export */ __webpack_exports__["a"] = (email);
 
 /***/ }),
 /* 302 */
 /***/ (function(module, exports) {
 
-module.exports = "/media/linkedin.png";
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 303 */
 /***/ (function(module, exports) {
 
-module.exports = "/media/gmail.png";
+module.exports = "/media/linkedin.png";
 
 /***/ }),
 /* 304 */
+/***/ (function(module, exports) {
+
+module.exports = "/media/gmail.png";
+
+/***/ }),
+/* 305 */
 /***/ (function(module, exports) {
 
 module.exports = "/media/github.png";

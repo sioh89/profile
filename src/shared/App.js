@@ -8,6 +8,7 @@ import {
 import renderHTML from 'react-render-html';
 import routes from './routes';
 import delay from './utils/charDelay';
+import email from './utils/email';
 import './App.css';
 
 // Media icons
@@ -21,12 +22,32 @@ class App extends React.Component {
     this.state = {
       currentPage: this.props.location.pathname,
       show: '0',
+      email: '0',
     }
     this.getAnimationTags = this.getAnimationTags.bind(this);
+    this.getEmail = this.getEmail.bind(this);
+    this.toggleEmail = this.toggleEmail.bind(this);
   }
 
   componentDidMount() {
     this.setState({show: 1});
+  }
+
+  toggleEmail() {
+    console.log('email toggled!')
+    this.setState({
+      email: '1',
+    });
+  }
+
+  getEmail() {
+    let emailHTML = '';
+
+    for (let i = 0; i < email.length; i++) {
+      emailHTML += `<span key=${'email'+i} style="opacity:${this.state.email};transition:opacity 100ms; transition-delay:${i * 70}ms;transition-timing-function:linear;">${email[i]}</span>`
+    }
+
+    return emailHTML;
   }
 
   getAnimationTags(tag, text, key) {
@@ -57,9 +78,13 @@ class App extends React.Component {
           </div>
 
           <div className={`contact-icons fadein${this.state.show === 1 ? ' show' : ''}`}>
-            <img className="icon linkedin" src={gmailIcon}/>
-            <img className="icon linkedin" src={linkedInIcon}/>
-            <img className="icon linkedin" src={githubIcon}/>
+            <img className="icon linkedin" src={gmailIcon} onClick={this.toggleEmail}/>
+            <a href="https://www.linkedin.com/in/rich-oh" target="_blank"><img className="icon linkedin" src={linkedInIcon}/></a>
+            <a href="https://www.github.com/sioh89" target="_blank"><img className="icon linkedin" src={githubIcon}/></a>
+          </div>
+          
+          <div className="email-text">
+            {renderHTML(this.getEmail())}
           </div>
         </div>
   
