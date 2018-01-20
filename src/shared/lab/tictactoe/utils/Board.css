@@ -21,3 +21,8 @@ img.ttt-col {
   height: 75px !important;
   margin: -.5px !important;
 }
+
+.confetti-machine {
+  margin: auto;
+  width: 1px !important;
+}

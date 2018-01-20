@@ -42578,12 +42578,15 @@ module.exports = "/media/github.png";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery__ = __webpack_require__(313);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Board_css__ = __webpack_require__(312);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Board_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Board_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__assets_o_png__ = __webpack_require__(314);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__assets_o_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__assets_o_png__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__assets_x_png__ = __webpack_require__(315);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__assets_x_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__assets_x_png__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_dom_confetti__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_dom_confetti___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_dom_confetti__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__collisions__ = __webpack_require__(318);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Board_css__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Board_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__Board_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__assets_o_png__ = __webpack_require__(314);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__assets_o_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__assets_o_png__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__assets_x_png__ = __webpack_require__(315);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__assets_x_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__assets_x_png__);
 var _jsxFileName = '/Users/rech/Apps/profile/src/shared/lab/tictactoe/utils/Board.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -42593,6 +42596,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
 
 
 
@@ -42613,7 +42618,15 @@ var Board = function (_React$Component) {
       values: new Array(9),
       count: 0,
       winner: 'none',
-      current: 'x'
+      current: 'x',
+      last: -1,
+      confettiConfig: {
+        angle: 90,
+        spread: 120,
+        startVelocity: 20,
+        elementCount: 59,
+        decay: 0.95
+      }
     };
     return _this;
   }
@@ -42623,18 +42636,11 @@ var Board = function (_React$Component) {
     value: function handleClick(e) {
       e.preventDefault();
 
-      console.log('clicked');
+      // Get which square was clicked
+      var square = parseInt(__WEBPACK_IMPORTED_MODULE_1_jquery___default()(e.currentTarget).attr('value'));
 
-      if (this.state.count < 9) {
-        console.log('this.state.count < 9');
-        var square = parseInt(__WEBPACK_IMPORTED_MODULE_1_jquery___default()(e.currentTarget).attr('value'));
-
-        console.log('this.state.values[square]', this.state.values[square]);
-        if (this.state.values[square] === undefined) {
-          console.log('this.state.values[square] === undefined');
-          this.placePiece(square);
-        }
-      }
+      // Place a piece on that square *STARTS A CHAIN OF FUNCTIONS*
+      this.placePiece(square);
     }
   }, {
     key: 'placePiece',
@@ -42644,8 +42650,24 @@ var Board = function (_React$Component) {
 
       this.setState({
         values: update,
-        count: this.state.count + 1
-      });
+        count: this.state.count + 1,
+        last: num
+      }, this.checkWinner);
+    }
+  }, {
+    key: 'checkWinner',
+    value: function checkWinner() {
+
+      if (this.state.count === 9) {
+        this.setState({ winner: 'draw' });
+      } else if (this.state.count < 5) {
+        // There can be no winner if fewer than 5 pieces on board
+        this.changePlayer();
+      } else {
+        console.log('is there a winner?', Object(__WEBPACK_IMPORTED_MODULE_3__collisions__["a" /* default */])(this.state.values, this.state.last));
+      }
+
+      // ****************************************************AT END OF CALL
 
       this.changePlayer();
     }
@@ -42668,7 +42690,8 @@ var Board = function (_React$Component) {
         values: new Array(9),
         count: 0,
         winner: 'none',
-        current: 'x'
+        current: 'x',
+        last: -1
       });
     }
   }, {
@@ -42678,7 +42701,7 @@ var Board = function (_React$Component) {
         'div',
         { className: 'ttt-board', __source: {
             fileName: _jsxFileName,
-            lineNumber: 71
+            lineNumber: 89
           },
           __self: this
         },
@@ -42686,7 +42709,7 @@ var Board = function (_React$Component) {
           'div',
           { className: 'current', __source: {
               fileName: _jsxFileName,
-              lineNumber: 73
+              lineNumber: 91
             },
             __self: this
           },
@@ -42696,7 +42719,7 @@ var Board = function (_React$Component) {
           'button',
           { onClick: this.resetGame.bind(this), __source: {
               fileName: _jsxFileName,
-              lineNumber: 77
+              lineNumber: 95
             },
             __self: this
           },
@@ -42706,40 +42729,40 @@ var Board = function (_React$Component) {
           'div',
           { className: 'ttt-row ttt-row-1', __source: {
               fileName: _jsxFileName,
-              lineNumber: 81
+              lineNumber: 99
             },
             __self: this
           },
           this.state.values[0] === undefined ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'ttt-col ttt-col-1', value: '0', onClick: this.handleClick.bind(this), __source: {
               fileName: _jsxFileName,
-              lineNumber: 82
+              lineNumber: 100
             },
             __self: this
-          }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'ttt-col ttt-col-1 ' + this.state.values[0], src: this.state.values[0] === 'x' ? __WEBPACK_IMPORTED_MODULE_4__assets_x_png___default.a : __WEBPACK_IMPORTED_MODULE_3__assets_o_png___default.a, __source: {
+          }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'ttt-col ttt-col-1 ' + this.state.values[0], src: this.state.values[0] === 'x' ? __WEBPACK_IMPORTED_MODULE_6__assets_x_png___default.a : __WEBPACK_IMPORTED_MODULE_5__assets_o_png___default.a, __source: {
               fileName: _jsxFileName,
-              lineNumber: 82
+              lineNumber: 100
             },
             __self: this
           }),
           this.state.values[1] === undefined ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'ttt-col ttt-col-2', value: '1', onClick: this.handleClick.bind(this), __source: {
               fileName: _jsxFileName,
-              lineNumber: 83
+              lineNumber: 101
             },
             __self: this
-          }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'ttt-col ttt-col-2 ' + this.state.values[1], src: this.state.values[1] === 'x' ? __WEBPACK_IMPORTED_MODULE_4__assets_x_png___default.a : __WEBPACK_IMPORTED_MODULE_3__assets_o_png___default.a, __source: {
+          }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'ttt-col ttt-col-2 ' + this.state.values[1], src: this.state.values[1] === 'x' ? __WEBPACK_IMPORTED_MODULE_6__assets_x_png___default.a : __WEBPACK_IMPORTED_MODULE_5__assets_o_png___default.a, __source: {
               fileName: _jsxFileName,
-              lineNumber: 83
+              lineNumber: 101
             },
             __self: this
           }),
           this.state.values[2] === undefined ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'ttt-col ttt-col-3', value: '2', onClick: this.handleClick.bind(this), __source: {
               fileName: _jsxFileName,
-              lineNumber: 84
+              lineNumber: 102
             },
             __self: this
-          }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'ttt-col ttt-col-3 ' + this.state.values[2], src: this.state.values[2] === 'x' ? __WEBPACK_IMPORTED_MODULE_4__assets_x_png___default.a : __WEBPACK_IMPORTED_MODULE_3__assets_o_png___default.a, __source: {
+          }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'ttt-col ttt-col-3 ' + this.state.values[2], src: this.state.values[2] === 'x' ? __WEBPACK_IMPORTED_MODULE_6__assets_x_png___default.a : __WEBPACK_IMPORTED_MODULE_5__assets_o_png___default.a, __source: {
               fileName: _jsxFileName,
-              lineNumber: 84
+              lineNumber: 102
             },
             __self: this
           })
@@ -42748,40 +42771,40 @@ var Board = function (_React$Component) {
           'div',
           { className: 'ttt-row ttt-row-2', __source: {
               fileName: _jsxFileName,
-              lineNumber: 87
+              lineNumber: 105
             },
             __self: this
           },
           this.state.values[3] === undefined ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'ttt-col ttt-col-1', value: '3', onClick: this.handleClick.bind(this), __source: {
               fileName: _jsxFileName,
-              lineNumber: 88
+              lineNumber: 106
             },
             __self: this
-          }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'ttt-col ttt-col-1 ' + this.state.values[3], src: this.state.values[3] === 'x' ? __WEBPACK_IMPORTED_MODULE_4__assets_x_png___default.a : __WEBPACK_IMPORTED_MODULE_3__assets_o_png___default.a, __source: {
+          }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'ttt-col ttt-col-1 ' + this.state.values[3], src: this.state.values[3] === 'x' ? __WEBPACK_IMPORTED_MODULE_6__assets_x_png___default.a : __WEBPACK_IMPORTED_MODULE_5__assets_o_png___default.a, __source: {
               fileName: _jsxFileName,
-              lineNumber: 88
+              lineNumber: 106
             },
             __self: this
           }),
           this.state.values[4] === undefined ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'ttt-col ttt-col-2', value: '4', onClick: this.handleClick.bind(this), __source: {
               fileName: _jsxFileName,
-              lineNumber: 89
+              lineNumber: 107
             },
             __self: this
-          }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'ttt-col ttt-col-2 ' + this.state.values[4], src: this.state.values[4] === 'x' ? __WEBPACK_IMPORTED_MODULE_4__assets_x_png___default.a : __WEBPACK_IMPORTED_MODULE_3__assets_o_png___default.a, __source: {
+          }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'ttt-col ttt-col-2 ' + this.state.values[4], src: this.state.values[4] === 'x' ? __WEBPACK_IMPORTED_MODULE_6__assets_x_png___default.a : __WEBPACK_IMPORTED_MODULE_5__assets_o_png___default.a, __source: {
               fileName: _jsxFileName,
-              lineNumber: 89
+              lineNumber: 107
             },
             __self: this
           }),
           this.state.values[5] === undefined ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'ttt-col ttt-col-3', value: '5', onClick: this.handleClick.bind(this), __source: {
               fileName: _jsxFileName,
-              lineNumber: 90
+              lineNumber: 108
             },
             __self: this
-          }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'ttt-col ttt-col-3 ' + this.state.values[5], src: this.state.values[5] === 'x' ? __WEBPACK_IMPORTED_MODULE_4__assets_x_png___default.a : __WEBPACK_IMPORTED_MODULE_3__assets_o_png___default.a, __source: {
+          }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'ttt-col ttt-col-3 ' + this.state.values[5], src: this.state.values[5] === 'x' ? __WEBPACK_IMPORTED_MODULE_6__assets_x_png___default.a : __WEBPACK_IMPORTED_MODULE_5__assets_o_png___default.a, __source: {
               fileName: _jsxFileName,
-              lineNumber: 90
+              lineNumber: 108
             },
             __self: this
           })
@@ -42790,44 +42813,50 @@ var Board = function (_React$Component) {
           'div',
           { className: 'ttt-row ttt-row-3', __source: {
               fileName: _jsxFileName,
-              lineNumber: 93
+              lineNumber: 111
             },
             __self: this
           },
           this.state.values[6] === undefined ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'ttt-col ttt-col-1', value: '6', onClick: this.handleClick.bind(this), __source: {
               fileName: _jsxFileName,
-              lineNumber: 94
+              lineNumber: 112
             },
             __self: this
-          }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'ttt-col ttt-col-1 ' + this.state.values[6], src: this.state.values[6] === 'x' ? __WEBPACK_IMPORTED_MODULE_4__assets_x_png___default.a : __WEBPACK_IMPORTED_MODULE_3__assets_o_png___default.a, __source: {
+          }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'ttt-col ttt-col-1 ' + this.state.values[6], src: this.state.values[6] === 'x' ? __WEBPACK_IMPORTED_MODULE_6__assets_x_png___default.a : __WEBPACK_IMPORTED_MODULE_5__assets_o_png___default.a, __source: {
               fileName: _jsxFileName,
-              lineNumber: 94
+              lineNumber: 112
             },
             __self: this
           }),
           this.state.values[7] === undefined ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'ttt-col ttt-col-2', value: '7', onClick: this.handleClick.bind(this), __source: {
               fileName: _jsxFileName,
-              lineNumber: 95
+              lineNumber: 113
             },
             __self: this
-          }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'ttt-col ttt-col-2 ' + this.state.values[7], src: this.state.values[7] === 'x' ? __WEBPACK_IMPORTED_MODULE_4__assets_x_png___default.a : __WEBPACK_IMPORTED_MODULE_3__assets_o_png___default.a, __source: {
+          }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'ttt-col ttt-col-2 ' + this.state.values[7], src: this.state.values[7] === 'x' ? __WEBPACK_IMPORTED_MODULE_6__assets_x_png___default.a : __WEBPACK_IMPORTED_MODULE_5__assets_o_png___default.a, __source: {
               fileName: _jsxFileName,
-              lineNumber: 95
+              lineNumber: 113
             },
             __self: this
           }),
           this.state.values[8] === undefined ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'ttt-col ttt-col-3', value: '8', onClick: this.handleClick.bind(this), __source: {
               fileName: _jsxFileName,
-              lineNumber: 96
+              lineNumber: 114
             },
             __self: this
-          }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'ttt-col ttt-col-3 ' + this.state.values[8], src: this.state.values[8] === 'x' ? __WEBPACK_IMPORTED_MODULE_4__assets_x_png___default.a : __WEBPACK_IMPORTED_MODULE_3__assets_o_png___default.a, __source: {
+          }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'ttt-col ttt-col-3 ' + this.state.values[8], src: this.state.values[8] === 'x' ? __WEBPACK_IMPORTED_MODULE_6__assets_x_png___default.a : __WEBPACK_IMPORTED_MODULE_5__assets_o_png___default.a, __source: {
               fileName: _jsxFileName,
-              lineNumber: 96
+              lineNumber: 114
             },
             __self: this
           })
-        )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_dom_confetti___default.a, { className: 'confetti-machine', active: this.state.winner !== 'none', config: this.state.confettiConfig, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 117
+          },
+          __self: this
+        })
       );
     }
   }]);
@@ -53227,6 +53256,228 @@ module.exports = "/media/o.png";
 
 module.exports = "/media/x.png";
 
+/***/ }),
+/* 316 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _domConfetti = __webpack_require__(317);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var style = {
+  position: 'relative'
+};
+
+var Confetti = function (_Component) {
+  _inherits(Confetti, _Component);
+
+  function Confetti(props) {
+    _classCallCheck(this, Confetti);
+
+    var _this = _possibleConstructorReturn(this, (Confetti.__proto__ || Object.getPrototypeOf(Confetti)).call(this, props));
+
+    _this.setRef = _this.setRef.bind(_this);
+    return _this;
+  }
+
+  _createClass(Confetti, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.active && !this.props.active) {
+        (0, _domConfetti.confetti)(this.container, nextProps.config);
+      }
+    }
+  }, {
+    key: 'setRef',
+    value: function setRef(ref) {
+      this.container = ref;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement('div', { className: this.props.className, style: style, ref: this.setRef });
+    }
+  }]);
+
+  return Confetti;
+}(_react.Component);
+
+exports.default = Confetti;
+
+/***/ }),
+/* 317 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.confetti = confetti;
+var defaultColors = ['#a864fd', '#29cdff', '#78ff44', '#ff718d', '#fdff6a'];
+
+function createElements(root, elementCount, colors) {
+  return Array.from({ length: elementCount }).map(function (_, index) {
+    var element = document.createElement('div');
+    var color = colors[index % colors.length];
+    element.style['background-color'] = color; // eslint-disable-line space-infix-ops
+    element.style.width = '10px';
+    element.style.height = '10px';
+    element.style.position = 'absolute';
+    root.appendChild(element);
+    return element;
+  });
+}
+
+function randomPhysics(angle, spread, startVelocity) {
+  var radAngle = angle * (Math.PI / 180);
+  var radSpread = spread * (Math.PI / 180);
+  return {
+    x: 0,
+    y: 0,
+    wobble: Math.random() * 10,
+    velocity: startVelocity * 0.5 + Math.random() * startVelocity,
+    angle2D: -radAngle + (0.5 * radSpread - Math.random() * radSpread),
+    angle3D: -(Math.PI / 4) + Math.random() * (Math.PI / 2),
+    tiltAngle: Math.random() * Math.PI
+  };
+}
+
+function updateFetti(fetti, progress, decay) {
+  /* eslint-disable no-param-reassign */
+  fetti.physics.x += Math.cos(fetti.physics.angle2D) * fetti.physics.velocity;
+  fetti.physics.y += Math.sin(fetti.physics.angle2D) * fetti.physics.velocity;
+  fetti.physics.z += Math.sin(fetti.physics.angle3D) * fetti.physics.velocity;
+  fetti.physics.wobble += 0.1;
+  fetti.physics.velocity *= decay;
+  fetti.physics.y += 3;
+  fetti.physics.tiltAngle += 0.1;
+
+  var _fetti$physics = fetti.physics,
+      x = _fetti$physics.x,
+      y = _fetti$physics.y,
+      tiltAngle = _fetti$physics.tiltAngle,
+      wobble = _fetti$physics.wobble;
+
+  var wobbleX = x + 10 * Math.cos(wobble);
+  var wobbleY = y + 10 * Math.sin(wobble);
+  var transform = 'translate3d(' + wobbleX + 'px, ' + wobbleY + 'px, 0) rotate3d(1, 1, 1, ' + tiltAngle + 'rad)';
+
+  fetti.element.style.transform = transform;
+  fetti.element.style.opacity = 1 - progress;
+
+  /* eslint-enable */
+}
+
+function animate(root, fettis, decay) {
+  var totalTicks = 200;
+  var tick = 0;
+
+  function update() {
+    fettis.forEach(function (fetti) {
+      return updateFetti(fetti, tick / totalTicks, decay);
+    });
+
+    tick += 1;
+    if (tick < totalTicks) {
+      requestAnimationFrame(update);
+    } else {
+      fettis.forEach(function (fetti) {
+        return root.removeChild(fetti.element);
+      });
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+function confetti(root) {
+  var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+      _ref$angle = _ref.angle,
+      angle = _ref$angle === undefined ? 90 : _ref$angle,
+      _ref$decay = _ref.decay,
+      decay = _ref$decay === undefined ? 0.9 : _ref$decay,
+      _ref$spread = _ref.spread,
+      spread = _ref$spread === undefined ? 45 : _ref$spread,
+      _ref$startVelocity = _ref.startVelocity,
+      startVelocity = _ref$startVelocity === undefined ? 45 : _ref$startVelocity,
+      _ref$elementCount = _ref.elementCount,
+      elementCount = _ref$elementCount === undefined ? 50 : _ref$elementCount,
+      _ref$colors = _ref.colors,
+      colors = _ref$colors === undefined ? defaultColors : _ref$colors;
+
+  var elements = createElements(root, elementCount, colors);
+  var fettis = elements.map(function (element) {
+    return {
+      element: element,
+      physics: randomPhysics(angle, spread, startVelocity)
+    };
+  });
+
+  animate(root, fettis, decay);
+}
+
+/***/ }),
+/* 318 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var possibilities = {
+  0: ['012', '048', '036'],
+  1: ['012', '147'],
+  2: ['012', '246', '258'],
+  3: ['036', '345'],
+  4: ['048', '147', '246', '345'],
+  5: ['258', '345'],
+  6: ['036', '246', '678'],
+  7: ['147', '678'],
+  8: ['048', '258', '678']
+};
+
+var win = function win(arr, num) {
+  var toCheck = possibilities[num];
+
+  for (var i = 0; i < toCheck.length; i++) {
+
+    var checking = toCheck[i];
+    var first = checking.charAt(0);
+    var second = checking.charAt(1);
+    var third = checking.charAt(2);
+
+    // The next two conditions only pass if all three values are equal to each other
+    console.log('from collisions', arr[first], arr[second], arr[third]);
+    if (arr[first] === arr[second]) {
+      if (arr[second] === arr[third]) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (win);
+
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.js.mapppingURL=bundle.js.map
+//# sourceMappingURL=bundle.js.map
