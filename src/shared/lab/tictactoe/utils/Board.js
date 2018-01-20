@@ -30,11 +30,13 @@ class Board extends React.Component {
   handleClick(e) {
     e.preventDefault();
 
-    // Get which square was clicked
-    const square = parseInt($(e.currentTarget).attr('value'));
-
-    // Place a piece on that square *STARTS A CHAIN OF FUNCTIONS*
-    this.placePiece(square);
+    if (this.state.winner === 'none') {
+      // Get which square was clicked
+      const square = parseInt($(e.currentTarget).attr('value'));
+      
+      // Place a piece on that square *STARTS A CHAIN OF FUNCTIONS*
+      this.placePiece(square);
+    }
   }
 
   placePiece(num) {
@@ -55,12 +57,14 @@ class Board extends React.Component {
     } else if (this.state.count < 5) { // There can be no winner if fewer than 5 pieces on board
       this.changePlayer();
     } else {
-      console.log('is there a winner?', collisions(this.state.values, this.state.last));
+      if (collisions(this.state.values, this.state.last)) {
+        this.setState({
+          winner: this.state.current,
+        });
+      } else {
+        this.changePlayer();
+      }
     }
-
-    // ****************************************************AT END OF CALL
-
-    this.changePlayer();
   }
 
   changePlayer() {

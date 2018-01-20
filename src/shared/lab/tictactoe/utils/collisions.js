@@ -21,7 +21,6 @@ const win = function(arr, num) {
     const third = checking.charAt(2);
 
     // The next two conditions only pass if all three values are equal to each other
-    console.log('from collisions', arr[first], arr[second], arr[third]);
     if (arr[first] === arr[second]) {
       if (arr[second] === arr[third]) {
         return true;
