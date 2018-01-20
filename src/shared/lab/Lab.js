@@ -1,14 +1,18 @@
 import React from 'react';
+import TicTacToe from './tictactoe/index.js';
 
-const Lab = function() {
-  return (
-    <div className="card blue-grey darken-1">
-      <div className="card-content white-text">
-        <span className="card-title">Lab</span>
-        <p>Lab component!</p>
+class Lab extends React.Component {
+  render() {
+    return (
+      <div className="card blue-grey darken-1">
+        <div className="card-content white-text">
+          <span className="card-title">Lab</span>
+          <p>Lab component!</p>
+          <TicTacToe />
+        </div>
       </div>
-    </div>
-  )
+    );
+  }
 };
 
 export default Lab;
