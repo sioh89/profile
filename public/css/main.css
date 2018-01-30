@@ -162,7 +162,21 @@ img {
             transform: rotate(360deg);
   }
 }
-.ttt-col {
+.card .card-image {
+  padding-left: 40px;
+  padding-right: 100px;
+}
+
+.card.horizontal .card-image {
+  background: -webkit-gradient(linear, left top, right top, from(#7aa09b), to(#536d79));
+  background: linear-gradient(to right, #7aa09b, #536d79);
+}
+
+.collection.with-header .collection-header {
+  background-color: inherit;
+  color: #483146;
+  font-weight: 400;
+}.ttt-col {
   display: inline-block;
   height: 75px;
   width: 75px;
