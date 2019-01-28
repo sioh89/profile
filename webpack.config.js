@@ -21,18 +21,7 @@ const browserConfig = {
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          use: [
-            {
-              loader: "css-loader",
-              options: { importLoaders: 1 }
-            },
-            {
-              loader: "postcss-loader",
-              options: { plugins: [autoprefixer()] }
-            }
-          ]
-        })
+        use: ['isomorphic-style-loader', { loader: 'css-loader' }]
       },
       {
         test: /js$/,
@@ -42,11 +31,11 @@ const browserConfig = {
       }
     ]
   },
-  plugins: [
-    new ExtractTextPlugin({
-      filename: "public/css/[name].css"
-    })
-  ]
+  // plugins: [
+  //   new ExtractTextPlugin({
+  //     filename: "public/css/[name].css"
+  //   })
+  // ]
 };
 
 const serverConfig = {
@@ -71,11 +60,7 @@ const serverConfig = {
       },
       {
         test: /\.css$/,
-        use: [
-          {
-            loader: "css-loader/locals"
-          }
-        ]
+        use: ['isomorphic-style-loader', { loader: 'css-loader' }]
       },
       {
         test: /js$/,
